@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title><%= @@crm_app_name %> :: <%= @page_name %></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <head>
+      <h1>This is in the header::layout.erb</h1>
+    </head>
+
+      <%= yield %>
+
+    <footer>
+      <h2>This is in the footer::layout.erb</h2>
+    </footer>
+  </body>
+</html>
