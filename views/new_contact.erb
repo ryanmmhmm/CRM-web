@@ -1,2 +1,27 @@
 
 <h1>Add New Contact</h1>
+
+<form id="new-contact" action="/contacts/new" method="POST">
+  <div class="field"
+    <label for="contact-first-name">First Name</label>
+    <input type="text" id="contact-first-name" name="first_name" placeholder="Joe">
+  </div>
+
+  <div class="field">
+    <label for="contact-last-name">Last Name</label>
+    <input type="text" id="contact-last-name" name="last_name" placeholder="Blow">
+  </div>
+
+  <div class="field">
+    <label for="contact-email"></label>
+    <input type="email" id="contact-email" name="email" placeholder="joeblow@email.com">
+  </div>
+
+  <div class="textbox">
+    <textarea name="notes" id="contact-notes" cols="30" rows="10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet ipsum consectetur ex sequi, tempora vel vitae quaerat soluta porro sapiente, ipsam, velit necessitatibus eveniet obcaecati mollitia quam ad voluptatibus assumenda.</textarea>
+  </div>
+
+  <button type="submit">
+    <img src="http://fillmurray.com/400/200" alt="Add New Contact">
+  </button>
+</form>

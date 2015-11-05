@@ -1,5 +1,14 @@
 
 <h1>Contacts</h1>
+<h2>Options Menu</h2>
 <ul>
   <li><a href="/contacts/new">Add New Contact</a></li>
+</ul>
+
+<h1>Contacts List</h1>
+
+<ul>
+  <% Contact.all.each do |contact| %>
+    <li><%= contact.last_name %>, <%= contact.first_name %></li>
+  <% end %>
 </ul>
