@@ -56,8 +56,14 @@ get '/contacts/:id' do
   end
 end
 
-put '/contacts/:id/modify' do
-  @contact =
+put '/contacts/:id' do
+  @contact.save(
+    :first_name => params[:first_name],
+    :last_name => params[:last_name],
+    :email => params[:email],
+    :notes => params[:notes]
+    )
+
   erb :modify_contact
 end
 
