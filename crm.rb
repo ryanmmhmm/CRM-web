@@ -2,12 +2,11 @@
 require 'sinatra'
 require 'data_mapper'
 
-DataMapper.setup(:default, 'sqlite:crm_development.sqlite3')
+DataMapper.setup(:default, 'sqlite3:crm_dev.sqlite3')
 
 
 class Contact
 
-  attr_accessor :id, :first_name, :last_name, :email, :notes
   include DataMapper::Resource
 
   property :id, Serial
@@ -16,8 +15,8 @@ class Contact
   property :email, String
   property :notes, Text
 
-
 end
+
 
 DataMapper.finalize
 DataMapper.auto_upgrade!
@@ -29,6 +28,7 @@ get '/' do
 end
 
 get '/contacts' do
+  @contacts = Contact.all
   erb :contacts  # :layout => :post
 end
 
@@ -37,17 +37,38 @@ get '/contacts/new' do
 end
 
 post '/contacts/new' do
-  Contact.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], notes: params[:notes])
+  @contact = Contact.create(
+    :first_name => params[:first_name],
+    :last_name => params[:last_name],
+    :email => params[:email],
+    :notes => params[:notes]
+  )
 
   redirect to '/contacts'
 end
 
-get '/contacts/modify' do
+get '/contacts/:id' do
+  @contact = Contact.get(params[:id].to_i)
+  if @contact
+    erb :view_contact
+  else
+    raise Sinatra::NotFound
+  end
+end
+
+put '/contacts/:id/modify' do
+  @contact =
   erb :modify_contact
 end
 
-get '/contacts/delete' do
-  erb :delete_contact
+delete '/contacts/:id' do
+  @contact = Contact.get(params[:id].to_i)
+  if @contact
+    @contact.destory
+  else
+    raise Sinatra::NotFound
+  end
+  redirect to '/contacts'
 end
 
 
