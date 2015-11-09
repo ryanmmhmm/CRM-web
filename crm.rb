@@ -1,18 +1,31 @@
 ##
-require_relative './contact.rb'
 require 'sinatra'
+require 'data_mapper'
+
+DataMapper.setup(:default, 'sqlite:crm_development.sqlite3')
+
+
+class Contact
+
+  attr_accessor :id, :first_name, :last_name, :email, :notes
+  include DataMapper::Resource
+
+  property :id, Serial
+  property :first_name, String
+  property :last_name, String
+  property :email, String
+  property :notes, Text
+
+
+end
+
+DataMapper.finalize
+DataMapper.auto_upgrade!
 
 @@crm_app_name = "NimubsCRM"
 
 get '/' do
-  erb :index, :layout => :layout
-end
-
-get '/start' do
-  Contact.create("Ryan", "Magowan", email: "magowan.ryan@gmail.com", notes: "Creator of @@crm_app_name")
-  Contact.create("Blank", "User", email: "blank_user@email.com", notes: "Blank User default")
-  Contact.create("This", "Is", email: "Another@email.com", notes: "User")
-  redirect to '/'
+  erb :index # sinatra default :layout => :layout
 end
 
 get '/contacts' do
@@ -24,7 +37,7 @@ get '/contacts/new' do
 end
 
 post '/contacts/new' do
-  Contact.create(params[:first_name], params[:last_name], email: params[:email], notes: params[:notes])
+  Contact.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], notes: params[:notes])
 
   redirect to '/contacts'
 end

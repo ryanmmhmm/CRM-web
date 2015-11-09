@@ -2,11 +2,11 @@
 
 class Contact
 
-attr_reader :id
-attr_accessor :first_name, :last_name, :email, :notes
+  attr_reader :id
+  attr_accessor :first_name, :last_name, :email, :notes
 
-@@contacts = []  # store all contacts (objects) in an array
-@@id = 1  # unique identifier for each contact
+  @@contacts = []  # store all contacts (objects) in an array
+  @@id = 1  # unique identifier for each contact
 
   def initialize(first_name, last_name, options = {})
     @first_name = first_name
