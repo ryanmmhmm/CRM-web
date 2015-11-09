@@ -12,9 +12,9 @@
 
 <ul>
   <% @contacts.each do |contact| %>
-    <li>
-      <%= contact.last_name %>, <%= contact.first_name %>,
-      <%= contact.email %>, <%= contact.notes %>
-    </li>
+    <a href="/contacts/<%= contact.id.to_i %>"><li>
+      <%= contact.last_name %>, <%= contact.first_name %>
+      [<%= contact.email %>]
+    </li></a>
   <% end %>
 </ul>
