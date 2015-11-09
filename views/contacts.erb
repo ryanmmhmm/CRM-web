@@ -1,20 +1,12 @@
 
-<h1>Contacts</h1>
-<h2>Options Menu</h2>
-<ul>
-  <li><a href="/contacts/new">Add</a></li>
-  <li><a href="/contacts/view">View</a></li>
-  <li><a href="/contacts/modify">Modify</a></li>
-  <li><a href="/contacts/delete">Delete</a></li>
-</ul>
-
 <h1>Contacts List</h1>
 
 <ul>
   <% @contacts.each do |contact| %>
-    <a href="/contacts/<%= contact.id.to_i %>"><li>
+    <div class="row">
+      <a href="/contacts/<%= contact.id.to_i %>" >
       <%= contact.last_name %>, <%= contact.first_name %>
-      [<%= contact.email %>]
-    </li></a>
+      [<%= contact.email %>]</a>
+    </div>
   <% end %>
 </ul>

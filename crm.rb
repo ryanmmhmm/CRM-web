@@ -24,7 +24,7 @@ DataMapper.auto_upgrade!
 @@crm_app_name = "NimubsCRM"
 
 get '/' do
-  erb :index # sinatra default :layout => :layout
+  erb :welcome, :layout => :landing_page
 end
 
 get '/contacts' do

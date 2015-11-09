@@ -2,26 +2,26 @@
 <h1>Add New Contact</h1>
 
 <form id="new-contact" action="/contacts/new" method="POST">
-  <div class="field">
-    <label for="contact-first-name">First Name</label>
-    <input type="text" id="contact-first-name" name="first_name" placeholder="Joe" value="">
-  </div>
+  <!-- <div class="field"> -->
+    <label for="contact-first-name" class="form-group">First Name</label>
+    <input type="text" id="contact-first-name" name="first_name" placeholder="Joe" class="form-control" value="">
+<!--   </div>
 
   <div class="field">
-    <label for="contact-last-name">Last Name</label>
-    <input type="text" id="contact-last-name" name="last_name" placeholder="Blow" value="">
-  </div>
+ -->    <label for="contact-last-name" class="form-group">Last Name</label>
+    <input type="text" id="contact-last-name" class="form-control" name="last_name" placeholder="Blow" value="">
+<!--   </div>
 
   <div class="field">
-    <label for="contact-email">Email</label>
-    <input type="email" id="contact-email" name="email" placeholder="joeblow@email.com" value="">
-  </div>
+ -->    <label for="contact-email" class="form-group">Email</label>
+    <input type="email" id="contact-email" class="form-control" name="email" placeholder="joeblow@email.com" value="">
+<!--   </div>
 
   <div class="textbox">
-    <textarea name="notes" id="contact-notes" cols="30" rows="10" value="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet ipsum consectetur ex sequi, tempora vel vitae quaerat soluta porro sapiente, ipsam, velit necessitatibus eveniet obcaecati mollitia quam ad voluptatibus assumenda.</textarea>
-  </div>
-
-  <button type="submit">
+ -->    <textarea name="notes" id="contact-notes" class="form-control" cols="30" rows="10" value="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet ipsum consectetur ex sequi, tempora vel vitae quaerat soluta porro sapiente, ipsam, velit necessitatibus eveniet obcaecati mollitia quam ad voluptatibus assumenda.</textarea>
+<!--   </div>
+ -->
+  <button type="submit" class="form-group">
     <img src="http://fillmurray.com/400/200" alt="Add New Contact">
   </button>
 </form>

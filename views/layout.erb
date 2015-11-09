@@ -3,17 +3,25 @@
   <head>
     <meta charset="UTF-8">
     <title><%= @@crm_app_name %> :: <%= @page_name %></title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   </head>
   <body>
     <header>
-      <h1>This is in the header::layout.erb</h1>
+      <nav>
+        <a href="/contacts"><h1><%= @@crm_app_name %></h1></a>
+        <ul>
+          <li><a href="/contacts/new">Add</a></li>
+          <!-- <li><a href="/contacts/view">View</a></li>
+          <li><a href="/contacts/modify">Modify</a></li>
+          <li><a href="/contacts/delete">Delete</a></li> -->
+        </ul>
+      </nav>
     </header>
-
+    <div class="container-fluid">
       <%= yield %>
-
+    </div>
     <footer>
-      <h2>This is in the footer::layout.erb</h2>
     </footer>
   </body>
 </html>
